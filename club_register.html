@@ -37,12 +37,37 @@
             background-color: #555;
         }
     </style>
+    <script>
+        function validarFormulario() {
+            let nombreClub = document.getElementById('nombreClub').value;
+            let estadio = document.getElementById('estadio').value;
+            let historia = document.getElementById('historia').value;
+            let colores = document.getElementById('colores').value;
+            let valores = document.getElementById('valores').value;
+            let escudo = document.getElementById('escudo').files.length;
+            let fotosCiudad = document.getElementById('ciudad').files.length;
+
+            if (nombreClub === '' || estadio === '' || historia === '' || colores === '' || valores === '') {
+                alert('Por favor, completa todos los campos.');
+                return false;
+            }
+            if (escudo === 0) {
+                alert('Por favor, sube el escudo del club.');
+                return false;
+            }
+            if (fotosCiudad === 0) {
+                alert('Por favor, sube al menos una foto de la ciudad/pueblo.');
+                return false;
+            }
+            return true; // Todo está bien, se puede enviar el formulario
+        }
+    </script>
 </head>
 <body>
 
 <div class="form-container">
     <h2>Registrar Club</h2>
-    <form action="club_profile.html" method="POST">
+    <form action="club_profile.html" method="POST" onsubmit="return validarFormulario()">
         <label for="nombreClub">Nombre del Club:</label>
         <input type="text" id="nombreClub" name="nombreClub" required>
 
