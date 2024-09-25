@@ -3,95 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Club - Lowwby</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            padding: 50px;
-        }
-        .form-container {
-            background-color: #fff;
-            padding: 20px;
-            margin: 0 auto;
-            max-width: 600px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        input[type="text"], input[type="file"], textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background-color: #333;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #555;
-        }
-    </style>
-    <script>
-        function validarFormulario() {
-            let nombreClub = document.getElementById('nombreClub').value;
-            let estadio = document.getElementById('estadio').value;
-            let historia = document.getElementById('historia').value;
-            let colores = document.getElementById('colores').value;
-            let valores = document.getElementById('valores').value;
-            let escudo = document.getElementById('escudo').files.length;
-            let fotosCiudad = document.getElementById('ciudad').files.length;
-
-            if (nombreClub === '' || estadio === '' || historia === '' || colores === '' || valores === '') {
-                alert('Por favor, completa todos los campos.');
-                return false;
-            }
-            if (escudo === 0) {
-                alert('Por favor, sube el escudo del club.');
-                return false;
-            }
-            if (fotosCiudad === 0) {
-                alert('Por favor, sube al menos una foto de la ciudad/pueblo.');
-                return false;
-            }
-            return true; // Todo está bien, se puede enviar el formulario
-        }
-    </script>
+    <title>Registro de Club</title>
 </head>
 <body>
 
-<div class="form-container">
-    <h2>Registrar Club</h2>
-    <form action="club_profile.html" method="POST" onsubmit="return validarFormulario()">
-        <label for="nombreClub">Nombre del Club:</label>
-        <input type="text" id="nombreClub" name="nombreClub" required>
+<h1>Registrar Club</h1>
 
-        <label for="estadio">Estadio:</label>
-        <input type="text" id="estadio" name="estadio" required>
+<form action="https://formspree.io/f/mqazvryl" method="POST" enctype="multipart/form-data">
+    <label for="nombreClub">Nombre del Club:</label>
+    <input type="text" id="nombreClub" name="nombreClub" required>
 
-        <label for="historia">Breve Historia del Club:</label>
-        <textarea id="historia" name="historia" required></textarea>
+    <label for="estadio">Estadio:</label>
+    <input type="text" id="estadio" name="estadio" required>
 
-        <label for="ciudad">Fotos de la Ciudad/Pueblo:</label>
-        <input type="file" id="ciudad" name="ciudad" multiple required>
+    <label for="historia">Breve Historia del Club:</label>
+    <textarea id="historia" name="historia" required></textarea>
 
-        <label for="colores">Colores del Equipo:</label>
-        <input type="text" id="colores" name="colores" required>
+    <label for="colores">Colores del Equipo:</label>
+    <input type="text" id="colores" name="colores" required>
 
-        <label for="valores">Valores del Club:</label>
-        <input type="text" id="valores" name="valores" required>
+    <label for="valores">Valores del Club:</label>
+    <input type="text" id="valores" name="valores" required>
 
-        <label for="escudo">Subir Escudo del Club:</label>
-        <input type="file" id="escudo" name="escudo" required>
+    <label for="escudo">Subir Escudo del Club:</label>
+    <input type="file" id="escudo" name="escudo" required>
 
-        <button type="submit">Registrar Club</button>
-    </form>
-</div>
+    <button type="submit">Registrar Club</button>
+</form>
 
 </body>
 </html>
