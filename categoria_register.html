@@ -37,12 +37,25 @@
             background-color: #555;
         }
     </style>
+    <script>
+        function validarFormulario() {
+            let categoria = document.getElementById('categoria').value;
+            let jugadores = document.getElementById('jugadores').value;
+            let liga = document.getElementById('liga').value;
+
+            if (categoria === '' || jugadores === '' || liga === '') {
+                alert('Por favor, completa todos los campos.');
+                return false;
+            }
+            return true; // Todo está bien, se puede enviar el formulario
+        }
+    </script>
 </head>
 <body>
 
 <div class="form-container">
     <h2>Registrar Categoría</h2>
-    <form action="categoria_profile.html" method="POST">
+    <form action="categoria_profile.html" method="POST" onsubmit="return validarFormulario()">
         <label for="categoria">Nombre de la Categoría:</label>
         <input type="text" id="categoria" name="categoria" required>
 
