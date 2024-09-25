@@ -8,45 +8,102 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
             text-align: center;
-            padding: 50px;
         }
-        .profile-container {
-            background-color: #fff;
+
+        header {
+            background-color: #333;
+            color: white;
             padding: 20px;
-            margin: 0 auto;
-            max-width: 800px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 1200px;
+            background-color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h2 {
-            color: #333;
-        }
+
         .club-details {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+
+        .club-details img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .club-info {
             text-align: left;
         }
-        img {
-            max-width: 200px;
-            height: auto;
-            margin-bottom: 20px;
+
+        .club-info h2 {
+            margin-top: 0;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #333;
+            color: white;
         }
     </style>
 </head>
 <body>
 
-<div class="profile-container">
-    <h2>Perfil del Club</h2>
+<header>
+    <h1>Perfil del Club</h1>
+    <p>By Teams for Teams</p>
+</header>
+
+<div class="container">
     <div class="club-details">
-        <p><strong>Nombre del Club:</strong> [Nombre del Club]</p>
-        <p><strong>Estadio:</strong> [Nombre del Estadio]</p>
-        <p><strong>Historia:</strong> [Breve historia del club]</p>
-        <p><strong>Colores:</strong> [Colores del equipo]</p>
-        <p><strong>Valores:</strong> [Valores del club]</p>
-        <p><strong>Fotos de la Ciudad/Pueblo:</strong></p>
-        <!-- Aquí puedes agregar un carrusel de fotos -->
-        <p><strong>Escudo del Club:</strong></p>
-        <img src="escudo.png" alt="Escudo del Club">
+        <div class="club-logo">
+            <img src="ruta_del_escudo.png" alt="Escudo del Club">
+        </div>
+        <div class="club-info">
+            <h2>Nombre del Club: <span id="nombreClub"></span></h2>
+            <p><strong>Estadio:</strong> <span id="estadio"></span></p>
+            <p><strong>Historia del Club:</strong> <span id="historia"></span></p>
+            <p><strong>Colores del Equipo:</strong> <span id="colores"></span></p>
+            <p><strong>Valores del Club:</strong> <span id="valores"></span></p>
+        </div>
     </div>
 </div>
 
+<footer>
+    <p>&copy; 2024 Lowwby. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    // Simulación de datos que se pueden extraer de una base de datos
+    const clubData = {
+        nombreClub: "Club Deportivo Ejemplo",
+        estadio: "Estadio Ejemplo",
+        historia: "Este club tiene una larga historia...",
+        colores: "Rojo y Blanco",
+        valores: "Trabajo en equipo, Esfuerzo, Respeto",
+        escudo: "ruta_del_escudo.png"  // Actualiza con la ruta del archivo del escudo
+    };
+
+    // Cargar los datos del club en el perfil
+    document.getElementById('nombreClub').textContent = clubData.nombreClub;
+    document.getElementById('estadio').textContent = clubData.estadio;
+    document.getElementById('historia').textContent = clubData.historia;
+    document.getElementById('colores').textContent = clubData.colores;
+    document.getElementById('valores').textContent = clubData.valores;
+</script>
+
 </body>
 </html>
+
