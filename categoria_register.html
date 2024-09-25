@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Categoría - Lowwby</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Registrar Categoría</h2>
+    <form action="categoria_profile.html" method="POST">
+        <label for="categoria">Nombre de la Categoría:</label>
+        <input type="text" id="categoria" name="categoria" required>
+
+        <label for="jugadores">Lista de Jugadores (nombre, dorsal, posición, capitán, entrenador):</label>
+        <textarea id="jugadores" name="jugadores" required></textarea>
+
+        <label for="liga">Enlace a la Liga:</label>
+        <input type="text" id="liga" name="liga" required>
+
+        <button type="submit">Registrar Categoría</button>
+    </form>
+</div>
+
+</body>
+</html>
