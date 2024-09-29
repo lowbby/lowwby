@@ -50,9 +50,8 @@
 </div>
 
 <!-- Firebase App (the core Firebase SDK) -->
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-<!-- Firebase Authentication -->
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
 
 <script>
     // Configuración de Firebase
@@ -81,7 +80,7 @@
                 // Usuario autenticado
                 alert("Inicio de sesión exitoso");
                 // Redirigir al usuario
-                window.location.href = "/dashboard.html";  // Cambia esta ruta según tu app
+                window.location.href = "dashboard.html";  // Asegúrate de que esta ruta sea correcta
             })
             .catch((error) => {
                 // Manejo de errores
