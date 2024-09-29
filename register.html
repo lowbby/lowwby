@@ -3,25 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Usuario</title>
+    <title>Registro - Lowwby</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Registro de Usuario</h1>
+<div class="form-container">
+    <h2>Registro de Usuario</h2>
+    <form id="registerForm">
+        <input type="email" id="registerEmail" placeholder="Correo electrónico" required>
+        <input type="password" id="registerPassword" placeholder="Contraseña" required>
+        <button type="submit">Registrar</button>
+    </form>
+</div>
 
-<form action="https://formspree.io/f/mqazvryl" method="POST">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required>
+<!-- Firebase App (the core Firebase SDK) -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+<!-- Firebase Authentication -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+<script>
+    // Configuración de Firebase (la misma que ya tienes para el inicio de sesión)
+    const firebaseConfig = {
+        apiKey: "AIzaSyCVc_i6F9h7SsG5krNBaRDIeukA_lkiXQo",
+        authDomain: "lowbby-e6243.firebaseapp.com",
+        projectId: "lowbby-e6243",
+        storageBucket: "lowbby-e6243.appspot.com",
+        messagingSenderId: "40535307668",
+        appId: "1:40535307668:web:0b631b6218f64fffc70b81",
+        measurementId: "G-WF4XCV0P5C"
+    };
 
-    <label for="password">Contraseña:</label>
-    <input type="password" id="password" name="password" required>
+    // Inicializar Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
 
-    <button type="submit">Registrarse</button>
-</form>
+    // Lógica de registro de usuarios
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const email = document.getElementById('registerEmail').value;
+        const password = document.getElementById('registerPassword').value;
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Usuario registrado correctamente
+                alert("Registro exitoso");
+                // Redirigir al usuario a otra página, si lo deseas
+                window.location.href = "/dashboard.html"; // Cambia esta ruta según tu aplicación
+            })
+            .catch((error) => {
+                // Manejo de errores
+                alert("Error en el registro: " + error.message);
+            });
+    });
+</script>
 
 </body>
 </html>
-
