@@ -42,12 +42,53 @@
 
 <div class="form-container">
     <h2>Iniciar Sesión</h2>
-    <form action="index.html" method="POST">
-        <input type="email" name="email" placeholder="Correo electrónico" required>
-        <input type="password" name="password" placeholder="Contraseña" required>
+    <form id="loginForm">
+        <input type="email" id="email" placeholder="Correo electrónico" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
         <button type="submit">Iniciar Sesión</button>
     </form>
 </div>
+
+<!-- Firebase App (the core Firebase SDK) -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+<!-- Firebase Authentication -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+
+<script>
+    // Configuración de Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyCVc_i6F9h7SsG5krNBaRDIeukA_lkiXQo",
+        authDomain: "lowbby-e6243.firebaseapp.com",
+        projectId: "lowbby-e6243",
+        storageBucket: "lowbby-e6243.appspot.com",
+        messagingSenderId: "40535307668",
+        appId: "1:40535307668:web:0b631b6218f64fffc70b81",
+        measurementId: "G-WF4XCV0P5C"
+    };
+
+    // Inicializar Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // Lógica de inicio de sesión
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Usuario autenticado
+                alert("Inicio de sesión exitoso");
+                // Redirigir al usuario
+                window.location.href = "/dashboard.html";  // Cambia esta ruta según tu app
+            })
+            .catch((error) => {
+                // Manejo de errores
+                alert("Error en el inicio de sesión: " + error.message);
+            });
+    });
+</script>
 
 </body>
 </html>
